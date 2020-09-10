@@ -1,0 +1,20 @@
+.content {
+    height: 97vh;
+}
+.main {
+    max-width: 320px;
+    margin: 0 auto;
+}
+h3 {
+    text-align: center;
+    line-height: 300%;
+}
+
+/* Registration */
+
+.content_registration {
+    height: 97vh;
+}
+.main_registration {
+    max-width: 420px;
+}
