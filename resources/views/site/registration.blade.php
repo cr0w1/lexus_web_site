@@ -10,14 +10,23 @@
 
         <form role="form" id="registration" action="{{ route('site.saveUser') }}" method="POST">
           @csrf
-            <div class="form-group">
-                <label for="inputUsernameEmail">Email</label>
-                <input type="text" name="email" class="form-control" id="inputUsernameEmail">
-                <div class="invalid-feedback">
-                    Campo obrigatório.
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label for="inputUsernameEmail">Email</label>
+                    <input type="text" name="email" class="form-control" id="inputUsernameEmail">
+                    <div class="invalid-feedback">
+                        Campo obrigatório.
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputPassword">Usuário</label>
+                    <input type="password" name="user" class="form-control" id="inputPassword">
+                    <div class="invalid-feedback">
+                        Campo obrigatório.
+                    </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputPassword">Senha</label>
                     <input type="password" name="password" class="form-control" id="inputPassword">

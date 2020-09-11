@@ -16,18 +16,25 @@
 
     <link rel="stylesheet" href="{{ asset('owlcarousel/assets/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('owlcarousel/assets/owl.theme.default.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/sliderPro.css') }}">
 </head>
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="{{ route('site.home') }}">
-                <img src="https://www.freelogodesign.org/file/app/client/thumb/ae046909-ee96-4c21-b100-0b1dc9b25b70_200x200.png?1599691240321" width="100" height="30"/>
+                Lenus
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                </ul>
+                <ul class="navbar-nav mr-auto">
+                </ul>
+                <ul class="navbar-nav mr-auto">
+                </ul>
+                <ul class="navbar-nav mr-auto">
+                </ul>
                 <ul class="navbar-nav mr-auto">
                 </ul>
                 <ul class="navbar-nav mr-auto">
@@ -36,21 +43,26 @@
                     <li class="nav-item mr-sm-4 ">
                         <a class="nav-link" href="{{ route('site.home') }}">Home</a>
                     </li>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-1" type="search" placeholder="Busque pela marca..." aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-                    </form>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('site.login') }}">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('site.registration') }}"><button class="btn btn-outline-info" >cadastro</button></a>
-                    </li>
-                    <li class="nav-item mr-sm-4">
-                        <a class="nav-link" href="{{ route('site.newCar') }}">Novo Carro</a>
-                    </li>
+                    @if (!session()->exists('user_loged'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('site.login') }}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('site.registration') }}"><button class="btn btn-outline-info" >cadastro</button></a>
+                        </li>
+
+                    @endif
+                    @if (session()->exists('user_loged'))
+                        <li class="nav-item mr-sm-4">
+                            <a class="nav-link" href="{{ route('site.newCar') }}">Novo Carro</a>
+                        </li>
+                        <li class="nav-item mr-sm-4">
+                            <a class="nav-link" href="{{ route('site.getUser') }}?id={{ session('user_loged')->id }}">{{  session('user_loged')->user }}</a>
+                        </li>
+                        <li class="nav-item mr-sm-4">
+                            <a class="nav-link" href="{{ route('site.logout') }}">Sair</a>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>
@@ -58,7 +70,7 @@
 
     @yield('content')
 
-    <footer>
+    <footer class="navbar-fixed-bottom">
         &#169; 2020/{{ date('Y')}}. Todos os direitos reservados a : Clebson S.
     </footer>
 
@@ -70,7 +82,6 @@
 
     <script src="{{ asset('owlcarousel/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('js/carousels.js') }}"></script>
-    <script src="{{ asset('js/sliderpro.min.js') }}"></script>
     <script src="{{ asset('js/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('js/jquery.validate.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>

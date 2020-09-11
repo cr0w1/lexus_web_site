@@ -117,12 +117,20 @@
             <div class="form-group">
                 <label for="validationTextarea">Descrição</label>
                 <textarea class="form-control" name="descricao" id="validationTextarea" placeholder="Ex: A segunda geração do modelo também..." ></textarea>
+                <div class="invalid-feedback">
+                    Campo obrigatório.
+                </div>
             </div>
             <div class="form-group">
-                <label for="validationTextarea">Arquivos</label>
-                <input type="file" class="form-control" name="images[]" id="validationTextarea" multiple></input>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" name="image" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+                    <label class="custom-file-label" for="inputGroupFile04">Imagem do carro</label>
+                    <div class="invalid-feedback">
+                        Campo obrigatório.
+                    </div>
+                </div>
             </div>
-            <input type="text" name="user_id" class="form-control" id="inputCity" value="1">
+            <input type="text" name="user_id" class="form-control" id="inputCity" value="1" hidden>
             <div class="form-group d-flex justify-content-center">
                 <button class="btn btn btn-primary col-md-6">
                     Enviar

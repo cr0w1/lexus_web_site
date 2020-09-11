@@ -19,11 +19,41 @@ class Car extends Model
         'combustivel',
         'motor',
         'valor',
-        'descricao'
+        'descricao',
+        'path'
     ];
 
-    public function images()
+    public function getOneCar($id)
     {
-        return $this->hasMany(Images::class, 'car_id', 'id');
+        $car = $this->find($id);
+        return $car;
+    }
+
+    public function carUpdate($car)
+    {
+        $this->where('id', $car['id'])->update($car);
+        return true;
+    }
+
+    public function getAll()
+    {
+        return $this->all();
+    }
+
+    public function recentsCar()
+    {
+        return $this->orderBy('id', 'DESC')->take(6)->get();
+    }
+
+    public function carUpdated($car)
+    {
+        $this->where('id', $car['id'])->update($car);
+        return true;
+    }
+
+    public function deleteCar($id)
+    {
+        $this->where('id', $id)->delete();
+        return true;
     }
 }

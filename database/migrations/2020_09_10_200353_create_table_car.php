@@ -29,6 +29,7 @@ class CreateTableCar extends Migration
             $table->string('motor');
             $table->string('valor');
             $table->string('descricao');
+            $table->string('path');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

@@ -5,10 +5,9 @@
     <div class="row">
 
       <div class="main">
-
         <h3>Entrar</h3>
-
-        <form role="form" id="login">
+        <form role="form" id="login" action="{{ route('site.auth') }}" method="POST">
+            @csrf
             <div class="form-group">
                 <label for="inputUsernameEmail">Email</label>
                 <input type="text" name="email" class="form-control" >
@@ -18,7 +17,7 @@
             </div>
             <div class="form-group">
                 <label for="inputPassword">Senha</label>
-                <input type="password" name="senha" class="form-control">
+                <input type="password" name="password" class="form-control">
                 <div class="invalid-feedback">
                     Campo obrigatório.
                 </div>
